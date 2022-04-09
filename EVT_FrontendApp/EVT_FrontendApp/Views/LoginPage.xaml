@@ -8,7 +8,21 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+            <Label Text="Username" FontSize="Medium" />
+            <Entry Text="{Binding Username, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Password" FontSize="Medium" />
+            <Editor Text="{Binding Password, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Grid VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Login" Command="{Binding LoginCommand}"/>
+                <Button Grid.Column="1" Text="Signup" Command="{Binding SignupCommand}"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

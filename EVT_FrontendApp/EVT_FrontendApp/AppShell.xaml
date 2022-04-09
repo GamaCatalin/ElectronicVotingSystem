@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:EVT_FrontendApp.Views"
-       Title="EVT_FrontendApp"
+       Title="Vote Now!"
        x:Class="EVT_FrontendApp.AppShell">
 
     <!--
@@ -99,6 +99,11 @@
     <TabBar>
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
+    
+    <TabBar>
+        <ShellContent Route="SignupPage" ContentTemplate="{DataTemplate local:SignupPage}" />
+    </TabBar>
+    
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
