@@ -19,6 +19,8 @@ namespace EVT_FrontendApp
             DependencyService.Register<MockAuthDataStore>();
             DependencyService.Register<AuthService>();
             DependencyService.Register<AlertService>();
+            DependencyService.Register<VoteService>();
+            
             MainPage = new AppShell();
         }
 

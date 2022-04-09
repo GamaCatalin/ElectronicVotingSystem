@@ -54,6 +54,7 @@ namespace EVT_FrontendApp.Services
 
         public async Task<bool> LogoutUser()
         {
+            await _authData.GetItemAsync(_currentAuthUser.Id);
             _currentAuthUser = null;
             return true;
         }
