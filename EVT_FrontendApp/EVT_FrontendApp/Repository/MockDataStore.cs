@@ -1,10 +1,11 @@
-﻿using EVT_FrontendApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EVT_FrontendApp.Models;
+using EVT_FrontendApp.Services;
 
-namespace EVT_FrontendApp.Services
+namespace EVT_FrontendApp.Repository
 {
     public class MockDataStore : IDataStore<Item>
     {

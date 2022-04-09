@@ -1,6 +1,8 @@
 ﻿using EVT_FrontendApp.Services;
 using EVT_FrontendApp.Views;
 using System;
+using EVT_FrontendApp.Repository;
+using EVT_FrontendApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +16,9 @@ namespace EVT_FrontendApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<MockAuthDataStore>();
+            DependencyService.Register<AuthService>();
+            DependencyService.Register<AlertService>();
             MainPage = new AppShell();
         }
 

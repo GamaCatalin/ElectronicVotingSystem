@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EVT_FrontendApp.Repository;
 using Xamarin.Forms;
 
 namespace EVT_FrontendApp.ViewModels

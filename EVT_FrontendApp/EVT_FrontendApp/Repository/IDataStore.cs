@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EVT_FrontendApp.Services
+namespace EVT_FrontendApp.Repository
 {
     public interface IDataStore<T>
     {
