@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "XxVu9/eQELZnBFNa1jpIUM5GJpWDb6EpvWGxEbEpMDp2caywgVcO/shyY62khCsPTeCZitvxFJvdFy+58QatSg==",
+  "success": true,
+  "projectFilePath": "C:\\Faculta\\An3_sem2\\Licenta\\ElectronicVotingSystem\\EVT_FrontendApp\\EVT_FrontendApp.iOS\\EVT_FrontendApp.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gamac\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": []
+}
