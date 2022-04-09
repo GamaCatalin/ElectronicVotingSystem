@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:EVT_FrontendApp.Views"
+       xmlns:sys="clr-namespace:System;assembly=netstandard"
        Title="Vote Now!"
        x:Class="EVT_FrontendApp.AppShell">
 
@@ -78,6 +79,12 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
+    
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
+    
+    
     <FlyoutItem Title="About" Icon="icon_about.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
@@ -99,9 +106,7 @@
         content you can do so by calling 
         await Shell.Current.GoToAsync("//LoginPage");
     -->
-    <TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
+    
 
 
     <!-- Optional Templates 
@@ -136,5 +141,17 @@
     </Shell.MenuItemTemplate>
 
     -->
+    
+    <Shell.FlyoutFooter>
+        <StackLayout>
+            <Label Text="EVS"
+                   TextColor="GhostWhite"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+                   TextColor="GhostWhite"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
 
 </Shell>
