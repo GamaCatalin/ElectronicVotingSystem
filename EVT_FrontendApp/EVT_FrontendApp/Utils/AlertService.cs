@@ -7,7 +7,12 @@ namespace EVT_FrontendApp.Utils
     {
         public async Task AlertAsync(string message)
         {
-            await App.Current.MainPage.DisplayAlert("ALERT!", message, "OK");
+            await App.Current.MainPage.DisplayAlert("Alert!", message, "Ok");
+        }
+
+        public async Task AlertAsync(string title, string message)
+        {
+            await App.Current.MainPage.DisplayAlert(title, message, "Ok");
         }
     }
 }

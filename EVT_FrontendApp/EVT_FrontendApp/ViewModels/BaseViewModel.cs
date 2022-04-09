@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using EVT_FrontendApp.Repository;
+using EVT_FrontendApp.Utils;
 using Xamarin.Forms;
 
 namespace EVT_FrontendApp.ViewModels
@@ -12,7 +13,9 @@ namespace EVT_FrontendApp.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
+        public AuthService AuthService => DependencyService.Get<AuthService>();
+        public IAlertService AlertService => DependencyService.Get<AlertService>();
+        
         bool isBusy = false;
         public bool IsBusy
         {

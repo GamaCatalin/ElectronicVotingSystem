@@ -15,14 +15,9 @@ namespace EVT_FrontendApp.ViewModels
         public Command SignupCommand { get; }
         private string _username;
         private string _password;
-
-        private readonly AuthService _authService;
-        private AlertService _alertService;
-
+        
         public LoginViewModel()
         {
-            _authService = DependencyService.Get<AuthService>();
-            _alertService = DependencyService.Get<AlertService>();
             LoginCommand = new Command(OnLoginClicked);
             SignupCommand = new Command(OnSignupClicked);
         }
@@ -41,7 +36,7 @@ namespace EVT_FrontendApp.ViewModels
         
         private async void OnLoginClicked(object obj)
         {
-            var loggedInSuccessfully = await _authService.LoginUser(_username, _password);
+            var loggedInSuccessfully = await AuthService.LoginUser(_username, _password);
 
 
             if (loggedInSuccessfully)
@@ -50,8 +45,7 @@ namespace EVT_FrontendApp.ViewModels
             }
             else
             {
-                await _alertService.AlertAsync("Login failed!");
-                // await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");   
+                await AlertService.AlertAsync("Login failed!");
             }
         }
 
