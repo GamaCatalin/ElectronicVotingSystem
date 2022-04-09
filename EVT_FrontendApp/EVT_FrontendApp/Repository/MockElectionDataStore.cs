@@ -40,7 +40,7 @@ namespace EVT_FrontendApp.Repository
                 
                 new Ballot()
                 {
-                    Id = Guid.NewGuid().ToString(), ElectionName = "Election 1", Options = new List<CandidateOption>()
+                    Id = Guid.NewGuid().ToString(), ElectionName = "Election 3", Options = new List<CandidateOption>()
                     {
                         new CandidateOption(){Id = Guid.NewGuid().ToString(), Title = "Candidate 3-1"},
                         new CandidateOption(){Id = Guid.NewGuid().ToString(), Title = "Candidate 3-2"},

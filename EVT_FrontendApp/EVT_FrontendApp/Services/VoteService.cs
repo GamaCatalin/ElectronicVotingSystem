@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EVT_FrontendApp.Models;
 using EVT_FrontendApp.Repository;
+using Xamarin.Forms;
 
 namespace EVT_FrontendApp.Services
 {
@@ -13,7 +14,7 @@ namespace EVT_FrontendApp.Services
         
         public VoteService()
         {
-            _voteData = new MockElectionDataStore();
+            _voteData = DependencyService.Get<MockElectionDataStore>();
         }
 
         public async Task<bool> CastVote(string ballotId, string candidateId)

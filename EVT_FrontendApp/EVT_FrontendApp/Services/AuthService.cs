@@ -3,17 +3,18 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using EVT_FrontendApp.Models;
 using EVT_FrontendApp.Repository;
+using Xamarin.Forms;
 
 namespace EVT_FrontendApp.Services
 {
     public class AuthService
     {
-        private readonly MockAuthDataStore _authData;
+        private readonly IDataStore<AuthInfo> _authData;
         private AuthInfo _currentAuthUser;
 
         public AuthService()
         {
-            _authData = MockAuthDataStore.Instance();
+            _authData = DependencyService.Get<MockAuthDataStore>();
             _currentAuthUser = null;
         }
 
@@ -54,7 +55,7 @@ namespace EVT_FrontendApp.Services
 
         public async Task<bool> LogoutUser()
         {
-            await _authData.GetItemAsync(_currentAuthUser.Id);
+            // await _authData.GetItemAsync(_currentAuthUser.Id);
             _currentAuthUser = null;
             return true;
         }

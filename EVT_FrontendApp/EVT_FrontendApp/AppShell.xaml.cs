@@ -16,6 +16,9 @@ namespace EVT_FrontendApp
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(SignupPage), typeof(SignupPage));
+            Routing.RegisterRoute(nameof(ElectionsPage), typeof(ElectionsPage));
+            Routing.RegisterRoute(nameof(BallotPage), typeof(BallotPage));
+            
         }
 
         private async void OnLogoutClicked(object sender, EventArgs e)

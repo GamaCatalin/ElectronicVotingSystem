@@ -17,6 +17,8 @@ namespace EVT_FrontendApp
 
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<MockAuthDataStore>();
+            DependencyService.Register<MockElectionDataStore>();
+            
             DependencyService.Register<AuthService>();
             DependencyService.Register<AlertService>();
             DependencyService.Register<VoteService>();

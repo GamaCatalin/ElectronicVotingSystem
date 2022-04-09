@@ -15,6 +15,9 @@ namespace EVT_FrontendApp.ViewModels
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public AuthService AuthService => DependencyService.Get<AuthService>();
         public IAlertService AlertService => DependencyService.Get<AlertService>();
+
+        public MockElectionDataStore ElectionDataStore => DependencyService.Get<MockElectionDataStore>();
+        public VoteService VoteService => DependencyService.Get<VoteService>();
         
         bool isBusy = false;
         public bool IsBusy

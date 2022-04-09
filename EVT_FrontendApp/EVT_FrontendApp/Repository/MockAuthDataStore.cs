@@ -12,7 +12,7 @@ namespace EVT_FrontendApp.Repository
         private static MockAuthDataStore instance;
         readonly List<AuthInfo> items;
         
-        private MockAuthDataStore()
+        public MockAuthDataStore()
         {
             items = new List<AuthInfo>()
             {

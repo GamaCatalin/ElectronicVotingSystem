@@ -19,3 +19,5 @@ C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendA
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp\obj\Debug\netstandard2.0\ref\EVT_FrontendApp.dll
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp\obj\Debug\netstandard2.0\EVT_FrontendApp.pdb
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp\obj\Debug\netstandard2.0\Views\SignupPage.xaml.g.cs
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp\obj\Debug\netstandard2.0\Views\BallotPage.xaml.g.cs
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp\obj\Debug\netstandard2.0\Views\ElectionsPage.xaml.g.cs
