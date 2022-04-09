@@ -10,27 +10,25 @@ namespace EVT_FrontendApp.ViewModels
 {
     public class SignupViewModel : BaseViewModel
     {
-        public Command GoBackCommand { get; }
         public Command RegisterCommand { get; }
 
         private string _username;
         private string _password;
-        
+
         public string Username
         {
             get => _username;
             set => SetProperty(ref _username, value);
         }
-        
+
         public string Password
         {
             get => _password;
             set => SetProperty(ref _password, value);
         }
-        
+
         public SignupViewModel()
         {
-            GoBackCommand = new Command(OnBackPressed);
             RegisterCommand = new Command(OnRegisterPressed);
         }
 
@@ -47,11 +45,6 @@ namespace EVT_FrontendApp.ViewModels
             {
                 await AlertService.AlertAsync("Register failed!");
             }
-        }
-
-        private async void OnBackPressed(object obj)
-        {
-            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }

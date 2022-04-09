@@ -2,6 +2,8 @@
 using EVT_FrontendApp.Views;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using EVT_FrontendApp.Services;
 using Xamarin.Forms;
 
 namespace EVT_FrontendApp
@@ -16,8 +18,9 @@ namespace EVT_FrontendApp
             Routing.RegisterRoute(nameof(SignupPage), typeof(SignupPage));
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private async void OnLogoutClicked(object sender, EventArgs e)
         {
+            await DependencyService.Get<AuthService>().LogoutUser();
             await Shell.Current.GoToAsync("//LoginPage");
         }
     }

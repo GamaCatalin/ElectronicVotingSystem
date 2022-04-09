@@ -51,8 +51,7 @@ namespace EVT_FrontendApp.ViewModels
 
         private async void OnSignupClicked(object obj)
         {
-            await Shell.Current.GoToAsync($"//{nameof(SignupPage)}");
-            // await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            await Shell.Current.GoToAsync($"{nameof(SignupPage)}");
         } 
         
     }
