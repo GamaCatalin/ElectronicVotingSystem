@@ -16,7 +16,7 @@
 
 	/* 1: EVT_FrontendApp.dll */
 	/* uncompressed_file_size */
-	.long	95232
+	.long	96256
 	/* loaded */
 	.byte	0
 	/* data */

@@ -41,7 +41,7 @@ namespace EVT_FrontendApp.ViewModels
 
             if (loggedInSuccessfully)
             {
-                await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(ElectionsPage)}");
             }
             else
             {
