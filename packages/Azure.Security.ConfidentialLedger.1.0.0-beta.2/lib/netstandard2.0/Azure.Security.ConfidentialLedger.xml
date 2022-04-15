@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>Azure.Security.ConfidentialLedger</name>
+    </assembly>
+    <members>
+        <member name="T:Azure.Security.ConfidentialLedger.ConfidentialLedgerConstants">
+            <summary>
+            Constant values for Confidential Ledger.
+            </summary>
+        </member>
+        <member name="F:Azure.Security.ConfidentialLedger.ConfidentialLedgerConstants.TransactionIdHeaderName">
+            <summary>
+            The header value containing the ledger transaction Id.
+            </summary>
+        </member>
+        <member name="T:Azure.Security.ConfidentialLedger.ConfidentialLedgerIdentityServiceClient">
+            <summary> The ConfidentialLedgerIdentityService service client. </summary>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerIdentityServiceClient.#ctor(System.Uri,Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions)">
+            <summary> Initializes a new instance of ConfidentialLedgerIdentityServiceClient. </summary>
+            <param name="identityServiceUri"> The Identity Service URL, for example https://identity.accledger.azure.com. </param>
+            <param name="options"> The options for configuring the client. </param>
+        </member>
+        <member name="P:Azure.Security.ConfidentialLedger.ConfidentialLedgerIdentityServiceClient.Pipeline">
+            <summary> The HTTP pipeline for sending and receiving REST requests and responses. </summary>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerIdentityServiceClient.#ctor">
+            <summary> Initializes a new instance of ConfidentialLedgerIdentityServiceClient for mocking. </summary>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerIdentityServiceClient.GetLedgerIdentityAsync(System.String,Azure.RequestOptions)">
+            <summary> Gets identity information for a Confidential Ledger instance. </summary>
+            <param name="ledgerId"> Id of the Confidential Ledger instance to get information for. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerIdentityServiceClient.GetLedgerIdentity(System.String,Azure.RequestOptions)">
+            <summary> Gets identity information for a Confidential Ledger instance. </summary>
+            <param name="ledgerId"> Id of the Confidential Ledger instance to get information for. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="T:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient">
+            <summary> The ConfidentialLedger service client. </summary>
+        </member>
+        <member name="P:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.Pipeline">
+            <summary> The HTTP pipeline for sending and receiving REST requests and responses. </summary>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.#ctor">
+            <summary> Initializes a new instance of ConfidentialLedgerClient for mocking. </summary>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions)">
+            <summary> Initializes a new instance of ConfidentialLedgerClient. </summary>
+            <param name="ledgerUri"> The Confidential Ledger URL, for example https://contoso.confidentialledger.azure.com. </param>
+            <param name="credential"> A credential used to authenticate to an Azure Service. </param>
+            <param name="options"> The options for configuring the client. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetConstitutionAsync(Azure.RequestOptions)">
+            <summary> The constitution is a script that assesses and applies proposals from consortium members. </summary>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetConstitution(Azure.RequestOptions)">
+            <summary> The constitution is a script that assesses and applies proposals from consortium members. </summary>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetConsortiumMembersAsync(Azure.RequestOptions)">
+            <summary> Consortium members can manage the Confidential Ledger. </summary>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetConsortiumMembers(Azure.RequestOptions)">
+            <summary> Consortium members can manage the Confidential Ledger. </summary>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetEnclaveQuotesAsync(Azure.RequestOptions)">
+            <summary> A quote is an SGX enclave measurement that can be used to verify the validity of a node and its enclave. </summary>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetEnclaveQuotes(Azure.RequestOptions)">
+            <summary> A quote is an SGX enclave measurement that can be used to verify the validity of a node and its enclave. </summary>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetLedgerEntriesAsync(System.String,System.String,System.String,Azure.RequestOptions)">
+            <summary> A sub-ledger id may optionally be specified. Only entries in the specified (or default) sub-ledger will be returned. </summary>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="fromTransactionId"> Specify the first transaction ID in a range. </param>
+            <param name="toTransactionId"> Specify the last transaction ID in a range. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetLedgerEntries(System.String,System.String,System.String,Azure.RequestOptions)">
+            <summary> A sub-ledger id may optionally be specified. Only entries in the specified (or default) sub-ledger will be returned. </summary>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="fromTransactionId"> Specify the first transaction ID in a range. </param>
+            <param name="toTransactionId"> Specify the last transaction ID in a range. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.PostLedgerEntryAsync(Azure.Core.RequestContent,System.String,Azure.RequestOptions)">
+            <summary> A sub-ledger id may optionally be specified. </summary>
+            <remarks>
+            Schema for <c>Request Body</c>:
+            <list type="table">
+              <listeader>
+                <term>Name</term>
+                <term>Type</term>
+                <term>Required</term>
+                <term>Description</term>
+              </listeader>
+              <item>
+                <term>contents</term>
+                <term>string</term>
+                <term>Yes</term>
+                <term> Contents of the ledger entry. </term>
+              </item>
+              <item>
+                <term>subLedgerId</term>
+                <term>string</term>
+                <term></term>
+                <term> Identifier for sub-ledgers. </term>
+              </item>
+              <item>
+                <term>transactionId</term>
+                <term>string</term>
+                <term></term>
+                <term> A unique identifier for the state of the ledger. If returned as part of a LedgerEntry, it indicates the state from which the entry was read. </term>
+              </item>
+            </list>
+            </remarks>
+            <param name="requestBody"> The request body. </param>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.PostLedgerEntry(Azure.Core.RequestContent,System.String,Azure.RequestOptions)">
+            <summary> A sub-ledger id may optionally be specified. </summary>
+            <remarks>
+            Schema for <c>Request Body</c>:
+            <list type="table">
+              <listeader>
+                <term>Name</term>
+                <term>Type</term>
+                <term>Required</term>
+                <term>Description</term>
+              </listeader>
+              <item>
+                <term>contents</term>
+                <term>string</term>
+                <term>Yes</term>
+                <term> Contents of the ledger entry. </term>
+              </item>
+              <item>
+                <term>subLedgerId</term>
+                <term>string</term>
+                <term></term>
+                <term> Identifier for sub-ledgers. </term>
+              </item>
+              <item>
+                <term>transactionId</term>
+                <term>string</term>
+                <term></term>
+                <term> A unique identifier for the state of the ledger. If returned as part of a LedgerEntry, it indicates the state from which the entry was read. </term>
+              </item>
+            </list>
+            </remarks>
+            <param name="requestBody"> The request body. </param>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetLedgerEntryAsync(System.String,System.String,Azure.RequestOptions)">
+            <summary> To return older ledger entries, the relevant sections of the ledger must be read from disk and validated. To prevent blocking within the enclave, the response will indicate whether the entry is ready and part of the response, or if the loading is still ongoing. </summary>
+            <param name="transactionId"> Identifies a write transaction. </param>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetLedgerEntry(System.String,System.String,Azure.RequestOptions)">
+            <summary> To return older ledger entries, the relevant sections of the ledger must be read from disk and validated. To prevent blocking within the enclave, the response will indicate whether the entry is ready and part of the response, or if the loading is still ongoing. </summary>
+            <param name="transactionId"> Identifies a write transaction. </param>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetReceiptAsync(System.String,Azure.RequestOptions)">
+            <summary> Gets a receipt certifying ledger contents at a particular transaction id. </summary>
+            <param name="transactionId"> Identifies a write transaction. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetReceipt(System.String,Azure.RequestOptions)">
+            <summary> Gets a receipt certifying ledger contents at a particular transaction id. </summary>
+            <param name="transactionId"> Identifies a write transaction. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetTransactionStatusAsync(System.String,Azure.RequestOptions)">
+            <summary> Gets the status of an entry identified by a transaction id. </summary>
+            <param name="transactionId"> Identifies a write transaction. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetTransactionStatus(System.String,Azure.RequestOptions)">
+            <summary> Gets the status of an entry identified by a transaction id. </summary>
+            <param name="transactionId"> Identifies a write transaction. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetCurrentLedgerEntryAsync(System.String,Azure.RequestOptions)">
+            <summary> A sub-ledger id may optionally be specified. </summary>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetCurrentLedgerEntry(System.String,Azure.RequestOptions)">
+            <summary> A sub-ledger id may optionally be specified. </summary>
+            <param name="subLedgerId"> The sub-ledger id. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.DeleteUserAsync(System.String,Azure.RequestOptions)">
+            <summary> Deletes a user from the Confidential Ledger. </summary>
+            <param name="userId"> The user id, either an AAD object ID or certificate fingerprint. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.DeleteUser(System.String,Azure.RequestOptions)">
+            <summary> Deletes a user from the Confidential Ledger. </summary>
+            <param name="userId"> The user id, either an AAD object ID or certificate fingerprint. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetUserAsync(System.String,Azure.RequestOptions)">
+            <summary> Gets a user. </summary>
+            <param name="userId"> The user id, either an AAD object ID or certificate fingerprint. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.GetUser(System.String,Azure.RequestOptions)">
+            <summary> Gets a user. </summary>
+            <param name="userId"> The user id, either an AAD object ID or certificate fingerprint. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateOrUpdateUserAsync(System.String,Azure.Core.RequestContent,Azure.RequestOptions)">
+            <summary> A JSON merge patch is applied for existing users. </summary>
+            <remarks>
+            Schema for <c>Request Body</c>:
+            <list type="table">
+              <listeader>
+                <term>Name</term>
+                <term>Type</term>
+                <term>Required</term>
+                <term>Description</term>
+              </listeader>
+              <item>
+                <term>assignedRole</term>
+                <term>"Administrator" | "Contributor" | "Reader"</term>
+                <term>Yes</term>
+                <term> Represents an assignable role. </term>
+              </item>
+              <item>
+                <term>userId</term>
+                <term>string</term>
+                <term></term>
+                <term> Identifier for the user. This must either be an AAD object id or a certificate fingerprint. </term>
+              </item>
+            </list>
+            </remarks>
+            <param name="userId"> The user id, either an AAD object ID or certificate fingerprint. </param>
+            <param name="requestBody"> The request body. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClient.CreateOrUpdateUser(System.String,Azure.Core.RequestContent,Azure.RequestOptions)">
+            <summary> A JSON merge patch is applied for existing users. </summary>
+            <remarks>
+            Schema for <c>Request Body</c>:
+            <list type="table">
+              <listeader>
+                <term>Name</term>
+                <term>Type</term>
+                <term>Required</term>
+                <term>Description</term>
+              </listeader>
+              <item>
+                <term>assignedRole</term>
+                <term>"Administrator" | "Contributor" | "Reader"</term>
+                <term>Yes</term>
+                <term> Represents an assignable role. </term>
+              </item>
+              <item>
+                <term>userId</term>
+                <term>string</term>
+                <term></term>
+                <term> Identifier for the user. This must either be an AAD object id or a certificate fingerprint. </term>
+              </item>
+            </list>
+            </remarks>
+            <param name="userId"> The user id, either an AAD object ID or certificate fingerprint. </param>
+            <param name="requestBody"> The request body. </param>
+            <param name="requestOptions"> The request options. </param>
+        </member>
+        <member name="T:Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions">
+            <summary> Client options for ConfidentialLedgerClient. </summary>
+        </member>
+        <member name="T:Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions.ServiceVersion">
+            <summary> The version of the service to use. </summary>
+        </member>
+        <member name="F:Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions.ServiceVersion.V0_1_preview">
+            <summary> Service version "0.1-preview". </summary>
+        </member>
+        <member name="M:Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions.#ctor(Azure.Security.ConfidentialLedger.ConfidentialLedgerClientOptions.ServiceVersion)">
+            <summary> Initializes new instance of ConfidentialLedgerClientOptions. </summary>
+        </member>
+        <member name="T:Azure.Core.Argument">
+            <summary>
+            Argument validation.
+            </summary>
+            <remarks>
+              <para>This class should be shared via source using Azure.Core.props and contain only common argument validation.
+                It is declared partial so that you can use the same familiar class name but extend it with project-specific validation.
+                To extend the functionality of this class, just declare your own partial <see cref="T:Azure.Core.Argument" /> class with project-specific methods.
+              </para>
+              <para>
+                Be sure to document exceptions thrown by these methods on your public methods.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNull``1(``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNull``1(System.Nullable{``0},System.String)">
+            <summary>
+            Throws if <paramref name="value" /> has not been initialized.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> has not been initialized.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty collection.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty collection.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty string.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null, an empty string, or consists only of white-space characters.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string or consists only of white-space characters.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotDefault``1(``0@,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is the default value for type <typeparamref name="T" />.
+            </summary>
+            <typeparam name="T">The type of structure to validate which implements <see cref="T:System.IEquatable`1" />.</typeparam>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is the default value for type <typeparamref name="T" />.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertInRange``1(``0,``0,``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is less than the <paramref name="minimum" /> or greater than the <paramref name="maximum" />.
+            </summary>
+            <typeparam name="T">The type of to validate which implements <see cref="T:System.IComparable`1" />.</typeparam>
+            <param name="value">The value to validate.</param>
+            <param name="minimum">The minimum value to compare.</param>
+            <param name="maximum">The maximum value to compare.</param>
+            <param name="name">The name of the parameter.</param>
+        </member>
+        <member name="M:Azure.Core.Argument.CheckNotNull``1(``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> has not been initialized; otherwise, returns <paramref name="value" />.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> has not been initialized.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.CheckNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty string; otherwise, returns <paramref name="value" />.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.AzureKeyCredentialPolicy.#ctor(Azure.AzureKeyCredential,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Azure.Core.AzureKeyCredentialPolicy" /> class.
+            </summary>
+            <param name="credential">The <see cref="T:Azure.AzureKeyCredential" /> used to authenticate requests.</param>
+            <param name="name">The name of the key header used for the credential.</param>
+        </member>
+        <member name="M:Azure.Core.AzureKeyCredentialPolicy.OnSendingRequest(Azure.Core.HttpMessage)">
+            <summary>
+            Method is invoked before the request is sent.
+            </summary><param name="message">The <see cref="T:Azure.Core.HttpMessage" /> containing the request.</param>
+        </member>
+        <member name="M:Azure.Core.Pipeline.ClientDiagnostics.ExtractFailureContent(System.String,Azure.Core.ResponseHeaders,System.String@,System.String@,System.Collections.Generic.IDictionary{System.String,System.String}@)">
+            <summary>
+            Partial method that can optionally be defined to extract the error
+            message, code, and details in a service specific manner.
+            </summary>
+            <param name="content">The error content.</param>
+            <param name="responseHeaders">The response headers.</param>
+            <param name="message">The error message.</param>
+            <param name="errorCode">The error code.</param>
+            <param name="additionalInfo">Additional error details.</param>
+        </member>
+        <member name="T:Azure.Core.Pipeline.ActivityExtensions">
+            <summary>
+            HACK HACK HACK. Some runtime environments like Azure.Functions downgrade System.Diagnostic.DiagnosticSource package version causing method not found exceptions in customer apps
+            This type is a temporary workaround to avoid the issue.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.Pipeline.TaskExtensions.Enumerable`1">
+            <summary>
+            Both <see cref="T:Azure.Core.Pipeline.TaskExtensions.Enumerable`1" /> and <see cref="T:Azure.Core.Pipeline.TaskExtensions.Enumerator`1" /> are defined as public structs so that foreach can use duck typing
+            to call <see cref="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.GetEnumerator" /> and avoid heap memory allocation.
+            Please don't delete this method and don't make these types private.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Azure.Core.ForwardsClientCallsAttribute">
+            <summary>
+            Marks methods that call methods on other client and don't need their diagnostics verified
+            </summary>
+        </member>
+        <member name="T:Azure.Core.AzureResourceProviderNamespaceAttribute">
+            <summary>
+            This attribute should be set on all client assemblies with value of one of the resource providers
+            from the https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers list.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.CodeGenModelAttribute.Usage">
+            <summary>
+            Gets or sets a coma separated list of additional model usage modes. Allowed values: model, error, intput, output.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.CodeGenModelAttribute.Formats">
+            <summary>
+            Gets or sets a coma separated list of additional model serialization formats.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.OperationInternals">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+        </member>
+        <member name="T:Azure.Core.OperationInternals`1">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+            <typeparam name="T">The final result of the LRO.</typeparam>
+        </member>
+        <member name="T:Azure.Core.OperationOrResponseInternals">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+        </member>
+        <member name="T:Azure.Core.OperationOrResponseInternals`1">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+            <typeparam name="T">The final result of the LRO.</typeparam>
+        </member>
+        <member name="M:Azure.Core.ChangeTrackingDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="P:Azure.Core.ChangeTrackingDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TKey@TValue}#Keys">
+            <summary>Gets an enumerable collection that contains the keys in the read-only dictionary.</summary><returns>An enumerable collection that contains the keys in the read-only dictionary.</returns>
+        </member>
+        <member name="P:Azure.Core.ChangeTrackingDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TKey@TValue}#Values">
+            <summary>Gets an enumerable collection that contains the values in the read-only dictionary.</summary><returns>An enumerable collection that contains the values in the read-only dictionary.</returns>
+        </member>
+        <member name="M:Azure.Core.ChangeTrackingList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
+            <summary>Returns an enumerator that iterates through the collection.</summary><returns>An enumerator that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="P:Azure.Core.Pipeline.TaskExtensions.Enumerator`1.System#Collections#IEnumerator#Current">
+            <summary>Gets the element in the collection at the current position of the enumerator.</summary><returns>The element in the collection at the current position of the enumerator.</returns>
+        </member>
+    </members>
+</doc>

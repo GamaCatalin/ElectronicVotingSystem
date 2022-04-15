@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "IPiVB/+k/XKgCGKGLiw2hDqfJzgjiDllTeRIffz3idFJIKeRgxGqB3Z/H5K9OuypoSo5UDPu/fSEU+VM2UWHng==",
+  "success": true,
+  "projectFilePath": "C:\\Faculta\\An3_sem2\\Licenta\\ElectronicVotingSystem\\EVT_Server\\EVT_Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gamac\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\gamac\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\gamac\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\gamac\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\gamac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\gamac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

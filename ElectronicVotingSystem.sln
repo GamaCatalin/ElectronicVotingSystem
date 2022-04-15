@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVT_FrontendApp.iOS", "EVT_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVT_FrontendApp", "EVT_FrontendApp\EVT_FrontendApp\EVT_FrontendApp.csproj", "{E0893435-186B-4FBE-8119-8624FF03D512}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVT_Server", "EVT_Server\EVT_Server.csproj", "{7003638F-048B-45B2-BB26-A74C2B593BBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,18 @@ Global
 		{E0893435-186B-4FBE-8119-8624FF03D512}.Release|iPhone.Build.0 = Release|Any CPU
 		{E0893435-186B-4FBE-8119-8624FF03D512}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E0893435-186B-4FBE-8119-8624FF03D512}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Release|iPhone.Build.0 = Release|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{7003638F-048B-45B2-BB26-A74C2B593BBF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
