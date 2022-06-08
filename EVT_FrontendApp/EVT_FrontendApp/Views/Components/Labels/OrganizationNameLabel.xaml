@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Label xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       LineBreakMode="NoWrap"
+       Style="{DynamicResource ListItemTextStyle}"
+       FontSize="36"
+       TextColor="{AppThemeBinding Light={StaticResource PrimaryTextColor}, Dark={StaticResource PrimaryTextColorDark}}"
+       HorizontalOptions="StartAndExpand"
+       VerticalOptions="FillAndExpand"
+       FontFamily="Nunito-ExtraBold"
+       Margin="0"
+       Padding="0"
+       x:Class="EVT_FrontendApp.Views.Labels.OrganizationNameLabel"/>

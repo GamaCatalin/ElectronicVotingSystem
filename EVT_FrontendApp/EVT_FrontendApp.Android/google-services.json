@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "818575851131",
+    "firebase_url": "https://electronicvotingsystem-f56d2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "electronicvotingsystem-f56d2",
+    "storage_bucket": "electronicvotingsystem-f56d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818575851131:android:5c7521ebaf263dc8042cde",
+        "android_client_info": {
+          "package_name": "com.licenta_ubb.evt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818575851131-9jgr8bcld66m7kd7ujpvg5r7s7av6nri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN86si9zqa2F1xYI3ftbV4vumLgMijh94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818575851131-9jgr8bcld66m7kd7ujpvg5r7s7av6nri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

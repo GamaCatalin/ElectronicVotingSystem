@@ -11,7 +11,7 @@ using EVT_Server.Models.Election;
 using EVT_Server.Repository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EVT_Server.Services;
+namespace EVT_Server.Services{
 
 
 
@@ -31,23 +31,46 @@ public class ElectionService
 
 
 
-    public async Task<IEnumerable<ElectionInfo>?> GetAll()
+    public List<ElectionInfo>? GetAll()
     {
-        return await repo.GetAll();
+        var elections = repo.GetAllElections();
         
+        foreach (var election in elections)
+        {
+            var matchingCandidates = GetMatchingCandidates(election.Id);
+            foreach(var candidate in matchingCandidates)
+            {
+                Console.WriteLine(candidate.ToString());
+                election.Options.Add(candidate);
+            }
+        }
+
+        return elections;
+    }
+
+    private List<CandidateOption> GetMatchingCandidates(Guid electionId)
+    {
+        CandidateService candidateService = new CandidateService();        
+        List<CandidateOption> candidates = candidateService.GetAll();
+
+        var matchingCandidates = candidates.FindAll(candidate => candidate.ElectionId == electionId);
+
+        return matchingCandidates;
     }
 
 
-    public async Task<bool> InsertElection(string electionName, IEnumerable<CandidateOption> candidates)
+    public bool InsertElection(string electionName, IEnumerable<CandidateOption> candidates)
     {
-        ElectionInfo election = new ElectionInfo() {Id = Guid.NewGuid(), ElectionName = electionName, Options = candidates};
+        ElectionInfo election = new ElectionInfo() {Id = Guid.NewGuid(), ElectionName = electionName, Options = new List<CandidateOption>(candidates)};
 
-        var insertResult = await repo.InsertElection(election);
+        var insertResult = repo.InsertElection(election);
 
         return insertResult;
     }
 
 
 
+
+}
 
 }

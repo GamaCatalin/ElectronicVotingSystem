@@ -1,8 +1,12 @@
 ﻿using EVT_FrontendApp.Services;
+using EVT_FrontendApp.Services.Account;
 using EVT_FrontendApp.Views;
 using System;
+using System.Threading.Tasks;
 using EVT_FrontendApp.Repository;
-using EVT_FrontendApp.Utils;
+using EVT_FrontendApp.Services.Navigation;
+using EVT_FrontendApp.ViewModels.Base;
+using EVT_FrontendApp.ViewModels.Pages.Login;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,21 +17,18 @@ namespace EVT_FrontendApp
 
         public App()
         {
-            InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
-            DependencyService.Register<MockAuthDataStore>();
-            DependencyService.Register<MockElectionDataStore>();
-            
-            DependencyService.Register<AuthService>();
-            DependencyService.Register<AlertService>();
-            DependencyService.Register<VoteService>();
-            
-            MainPage = new AppShell();
+            InitializeComponent();            
         }
 
-        protected override void OnStart()
+        Task InitNavigation()
         {
+            var navService = ViewModelLocator.Resolve<INavigationService>();
+            return navService.NavigateToAsync<LoginViewModel>(null, true);
+        }
+
+        protected override async void OnStart()
+        {
+            await InitNavigation();
         }
 
         protected override void OnSleep()

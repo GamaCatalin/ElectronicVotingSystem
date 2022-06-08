@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons"
+             xmlns:views="clr-namespace:EVT_FrontendApp.Views"
+             xmlns:labels="clr-namespace:EVT_FrontendApp.Views.Labels"
+             xmlns:auth="clr-namespace:EVT_FrontendApp.Views.Auth"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}"
+             mc:Ignorable="d"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             xmlns:entries="clr-namespace:EVT_FrontendApp.Views.Entries;assembly=EVT_FrontendApp"
+             x:Class="EVT_FrontendApp.Views.ProfilePage"
+             Padding="0">
+    <ContentPage.Content>
+        <Grid Margin="0" Padding="0">
+            <skViews:RectGradientView
+                StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                VerticalOptions="FillAndExpand"
+                Margin="0"
+                Padding="0" />
+
+            <ActivityIndicator
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,0,0,0"
+                Scale="2.5"
+                Color="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+                IsRunning="{Binding IsBusy}" />
+
+
+            <StackLayout
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                Margin="0"
+                Padding="0">
+
+                <StackLayout
+                    Padding="0"
+                    Margin="0,45,0,0">
+                    <Frame
+                        CornerRadius="100"
+                        WidthRequest="200"
+                        HeightRequest="200"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        Margin="0, 0,0,0"
+                        Padding="0,0,0,0"
+                        IsClippedToBounds="True">
+                        <Image WidthRequest="200" 
+                               Aspect = "AspectFill"
+                               HeightRequest="200"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               BackgroundColor="Transparent"
+                               Margin="0" Source="{Binding ProfilePicture}" />      
+                    </Frame>
+                    <ProgressBar
+                        WidthRequest="100"
+                        Progress="{Binding UploadPhotoProgress}"
+                        IsVisible="{Binding IsProgressBarVisible}"
+                    />
+                    
+                    
+                    <buttons:BindableButton
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+                        BindingContext="{Binding ChangePictureButtonModel}" />
+                </StackLayout>
+
+
+                <StackLayout
+                    Margin="0"
+                    Padding="0">
+                    <labels:ProfileItemLabel
+                        Text="First Name"
+                        Margin="0,0,0,-10" />
+                    <entries:TextEntryView BindingContext="{Binding FirstNameEntryViewModel}"
+                                           Margin="0"
+                                           Padding="0" />
+                </StackLayout>
+
+                <StackLayout
+                    Margin="0"
+                    Padding="0">
+                    <labels:ProfileItemLabel
+                        Text="Last Name"
+                        Margin="0,0,0,-10" />
+                    <entries:TextEntryView BindingContext="{Binding LastNameEntryViewModel}"
+                                           Margin="0"
+                                           Padding="0" />
+                </StackLayout>
+
+                <StackLayout
+                    WidthRequest="300"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,30,0,0"
+                    Padding="0"
+                    VerticalOptions="StartAndExpand">
+                    <labels:ProfileItemLabel
+                        Text="{Binding SuccessfulSaveText}"
+                        Margin="0,0,0,0"
+                        Padding="0,0,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        FontFamily="Nunito-Bold"
+                        FontSize="20"
+                        TextColor="{AppThemeBinding Light={StaticResource PrimarySuccessTextColor},Dark={StaticResource PrimarySuccessTextColorDark}}"
+                        IsVisible="True" />
+
+
+                    <buttons:BindableButton
+                        BindingContext="{Binding SaveChangesModel}"
+                        HorizontalOptions="FillAndExpand" />
+
+
+                    <buttons:BindableButton
+                        BindingContext="{Binding LogOutModel}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

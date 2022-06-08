@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:pages="clr-namespace:EVT_FrontendApp.Views"
+             x:Class="EVT_FrontendApp.Views.BallotPage"
+             Title="{Binding Title}"
+             xmlns:labels="clr-namespace:EVT_FrontendApp.Views.Labels"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons"
+             xmlns:local="clr-namespace:EVT_FrontendApp.ViewModels"
+             xmlns:model="clr-namespace:EVT_FrontendApp.Models"
+             xmlns:itemViews="clr-namespace:EVT_FrontendApp.Views.Items"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews;assembly=EVT_FrontendApp"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="ElectionVotePage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}">
+
+
+    <ContentPage.Content>
+        <Grid
+            Margin="0"
+            Padding="0">
+            
+            <skViews:RectGradientView StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                                      EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                                      VerticalOptions="FillAndExpand"
+                                      Margin="0"
+                                      Padding="0" />
+            
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding Items}"
+                                SelectedItem="{Binding SelectedItem}"
+                                SelectionMode="Single"
+                                x:Name="CandidateCollectionView"
+                >
+
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <itemViews:CandidateItemView />
+                            </StackLayout>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+
+                <buttons:BindableButton
+                    BindingContext="{Binding CastVoteModel}"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="20,0,20,10"
+                    VerticalOptions="End" />
+
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>

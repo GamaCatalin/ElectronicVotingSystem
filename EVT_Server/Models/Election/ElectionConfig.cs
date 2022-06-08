@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EVT_Server.Models.Election;
+namespace EVT_Server.Models.Election{
 
 public class ElectionConfig : IEntityTypeConfiguration<ElectionInfo>
 {
@@ -9,4 +9,5 @@ public class ElectionConfig : IEntityTypeConfiguration<ElectionInfo>
     {
         throw new NotImplementedException();
     }
+}
 }

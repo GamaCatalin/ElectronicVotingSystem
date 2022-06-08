@@ -1,7 +1,7 @@
 using EVT_Server.Models.Election;
 using Microsoft.EntityFrameworkCore;
 
-namespace EVT_Server.Models;
+namespace EVT_Server.Models{
 
 public class EvtContext : DbContext
 {
@@ -20,4 +20,5 @@ public class EvtContext : DbContext
         builder.ApplyConfiguration(new ElectionConfig());
     }
     
+}
 }

@@ -1,6 +1,6 @@
 using EVT_Server.Models;
 
-namespace EVT_Server.Services;
+namespace EVT_Server.Services{
 
 public static class PizzaService
 {
@@ -42,4 +42,5 @@ public static class PizzaService
 
         Pizzas[index] = pizza;
     }
+}
 }

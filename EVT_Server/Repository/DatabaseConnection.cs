@@ -1,19 +1,17 @@
 using System.Data;
 using Npgsql;
 
-namespace EVT_Server.Repository;
+namespace EVT_Server.Repository{
 
 public class DatabaseConnection
 {
     private string _connectionString = "Host=localhost;Username=postgres;Password=123;Database=EVS_TestDB";
-    private readonly NpgsqlConnection _databaseConnection;
     private static DatabaseConnection? _instance;
 
 
     private DatabaseConnection()
     {
-        _databaseConnection = new NpgsqlConnection(_connectionString);
-        _databaseConnection.Open();        
+      
     }
 
     public static DatabaseConnection GetInstance()
@@ -26,40 +24,45 @@ public class DatabaseConnection
         return _instance;
     }
 
-    public void Deconstruct()
+
+    public NpgsqlDataReader ExecuteReadCommand(string sqlCommand)
     {
-        _databaseConnection.Close();
-    }
+        var databaseConnection = new NpgsqlConnection(_connectionString);
+        databaseConnection.Open();  
+        
+        var command = new NpgsqlCommand(sqlCommand, databaseConnection);
 
-
-    public async Task<NpgsqlDataReader> ExecuteReadCommand(string sqlCommand)
-    {
-        var command = new NpgsqlCommand(sqlCommand, _databaseConnection);
-
-        var dataReader = await command.ExecuteReaderAsync();
+        var dataReader = command.ExecuteReader();
 
         return dataReader;
     }
     
     
-    public async Task<int> ExecuteWriteCommand(string sqlCommand)
+    public int ExecuteWriteCommand(string sqlCommand)
     {
-        var command = new NpgsqlCommand(sqlCommand, _databaseConnection);
+        var databaseConnection = new NpgsqlConnection(_connectionString);
+        databaseConnection.Open();  
+        
+        var command = new NpgsqlCommand(sqlCommand, databaseConnection);
 
-        var affectedRows = await command.ExecuteNonQueryAsync();
+        var affectedRows = command.ExecuteNonQuery();
 
         return affectedRows;
     }
 
-    public async Task<int> ExecuteIncrementProcedure(Guid candidateId)
+    public int ExecuteIncrementProcedure(Guid candidateId)
     {
+        var databaseConnection = new NpgsqlConnection(_connectionString);
+        databaseConnection.Open();  
+        
         var incrementProcedure = "call increment_vote(:incremented_id)";
-        var command = new NpgsqlCommand(incrementProcedure, _databaseConnection);
+        var command = new NpgsqlCommand(incrementProcedure, databaseConnection);
         command.CommandType = CommandType.Text;
         command.Parameters.AddWithValue("incremented_id", candidateId);
 
-        var affectedRows = await command.ExecuteNonQueryAsync();
-
+        var affectedRows = command.ExecuteNonQuery();
+        
         return affectedRows;
     }
+}
 }

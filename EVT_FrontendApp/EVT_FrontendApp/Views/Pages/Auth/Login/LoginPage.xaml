@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons"
+             xmlns:views="clr-namespace:EVT_FrontendApp.Views"
+             xmlns:auth="clr-namespace:EVT_FrontendApp.Views.Auth"
+             xmlns:indicators="clr-namespace:EVT_FrontendApp.Views.Indicators"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             xmlns:entries="clr-namespace:EVT_FrontendApp.Views.Entries;assembly=EVT_FrontendApp"
+             x:Class="EVT_FrontendApp.Views.LoginPage"
+             Padding="0">
+    <ContentPage.Content>
+        <Grid Margin="0" Padding="0">
+            <skViews:RectGradientView
+                StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                VerticalOptions="FillAndExpand"
+                Margin="0"
+                Padding="0" />
+
+            <ActivityIndicator
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,0,0,0"
+                Scale="2.5"
+                Color="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+                IsRunning="{Binding IsBusy}"
+                />
+            
+            <StackLayout
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                Margin="0"
+                Padding="0">
+                <!-- App Icon -->
+                <Image WidthRequest="200" Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="EndAndExpand"
+                       Margin="20, 0 , 20,50" Source="Tick_128" />
+
+                <entries:TextEntryView BindingContext="{Binding EmailEntryViewModel}" />
+                <entries:TextEntryView BindingContext="{Binding PasswordEntryViewModel}" />
+
+
+                <buttons:BindableButton BackgroundColor="Transparent"
+                                        HorizontalOptions="EndAndExpand"
+                                        FontFamily="Nunito-SemiBold"
+                                        FontSize="12"
+                                        Margin="0,0,-50,0"
+                                        TextColor="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+                                        BindingContext="{Binding ForgotPasswordModel}" />
+
+                <buttons:BindableButton
+                    BindingContext="{Binding LogInModel}"
+                    HorizontalOptions="FillAndExpand" />
+                <buttons:BindableButton
+                    BindingContext="{Binding SignUpModel}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+
+
+                <!-- <buttons:BindableButton BackgroundColor="Transparent" -->
+                <!--                         TextColor="{AppThemeBinding Light={StaticResource SecondaryBackgroundColor}, Dark={StaticResource SecondaryBackgroundColorDark}}" -->
+                <!--                         BindingContext="{Binding UsePhoneModel}" -->
+                <!--                         Margin="-35,0,0,0" -->
+                <!--                         VerticalOptions="StartAndExpand" -->
+                <!--                         HorizontalOptions="StartAndExpand" -->
+                <!-- /> -->
+
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,18 +1,20 @@
 using EVT_Server.Repository;
 
-namespace EVT_Server.Services;
-
-public class VotingService
+namespace EVT_Server.Services
 {
-    private CandidateRepository repo;
 
-    public VotingService()
+    public class VotingService
     {
-        repo = new CandidateRepository();
-    }
+        private CandidateRepository repo;
 
-    public async Task<bool> DoVote(Guid candidate)
-    {
-        return await repo.IncrementVote(candidate);
+        public VotingService()
+        {
+            repo = new CandidateRepository();
+        }
+
+        public bool DoVote(Guid candidate)
+        {
+            return repo.IncrementVote(candidate);
+        }
     }
 }

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:pages="clr-namespace:EVT_FrontendApp.Views"
+             Title="Settings"
+             x:Class="EVT_FrontendApp.Views.Pages.Org.OrganizationPage"
+             xmlns:labels="clr-namespace:EVT_FrontendApp.Views.Labels"
+             xmlns:local="clr-namespace:EVT_FrontendApp.ViewModels"
+             xmlns:model="clr-namespace:EVT_FrontendApp.Models"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             xmlns:entries="clr-namespace:EVT_FrontendApp.Views.Entries;assembly=EVT_FrontendApp"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="BrowseElectionsPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}">
+    <ContentPage.Content>
+        <Grid
+            Margin="0"
+            Padding="0">
+
+            <skViews:RectGradientView
+                StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                VerticalOptions="FillAndExpand"
+                Margin="0"
+                Padding="0" />
+
+
+            <RefreshView
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                Command="{Binding LoadOrganizationCommand}"
+                IsEnabled="False">
+                <StackLayout
+                    Margin="20">
+
+                    <Grid
+                        IsVisible="{Binding IsMemberOfAnOrganization}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        RowDefinitions="*"
+                        ColumnDefinitions="*"
+                        Margin="20">
+                        
+                        <StackLayout
+                            Grid.Row="1"
+                            VerticalOptions="StartAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            >
+
+                            <labels:OrganizationNameLabel
+                                Text="{Binding OrganizationName}" />
+
+                            <labels:OrganizationStatusLabel
+                                Text="{Binding OrganizationRank}" />
+                        </StackLayout>
+
+
+                        <buttons:BindableButton
+                            Grid.Row="3"
+                            WidthRequest="300"
+                            BindingContext="{Binding CreateElectionButtonModel}"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="EndAndExpand" />
+ 
+                        <Grid
+                            Grid.Row="5"
+                            ColumnDefinitions="*,80"
+                            RowDefinitions="*"
+                            >
+                        <entries:TextEntryView
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            WidthRequest="500"
+                            BindingContext="{Binding ReferralEntryViewModel}"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="0,0,20,0" />
+                        <buttons:BindableButton
+                            Grid.Column="1"
+                            WidthRequest="100"
+                            BindingContext="{Binding ReferralButtonModel}"
+                            HorizontalOptions="EndAndExpand" />
+                        </Grid>
+                        
+                        
+                        <Grid
+                            Grid.Row="7"
+                            HorizontalOptions="StartAndExpand"
+                            Margin="-25,0,0,-50"
+                            Padding="0"
+                            >
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"  
+                                Margin="0"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                IsVisible="{Binding IsFounderOfOrganization, Converter={StaticResource InvertedBoolConverter}}"
+                                >
+                            <buttons:BindableButton                              
+                                BindingContext="{Binding LeaveOrganizationButtonModel}"
+                                BackgroundColor="Transparent"
+                                TextColor="{AppThemeBinding Light={StaticResource PrimaryErrorTextColor}, Dark={StaticResource PrimaryErrorTextColorDark}}"
+                            />
+                            </Frame>
+                            
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"  
+                                Margin="0"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                IsVisible="{Binding IsFounderOfOrganization}"
+                                >
+                            <buttons:BindableButton
+                                BindingContext="{Binding DeleteOrganizationButtonModel}"
+                                BackgroundColor="Transparent"
+                                TextColor="{AppThemeBinding Light={StaticResource PrimaryErrorTextColor}, Dark={StaticResource PrimaryErrorTextColorDark}}"
+                            />
+                            </Frame>
+                        </Grid>
+                        
+                    </Grid>
+
+                    <Grid
+                        IsVisible="{Binding IsMemberOfAnOrganization, Converter={StaticResource InvertedBoolConverter}}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        RowDefinitions="*"
+                        ColumnDefinitions="*"
+                        Margin="20">
+                        <labels:OrganizationStatusLabel
+                            Grid.Row="0"
+                            Text="You currently are not a member of any organization"
+                            DisableLayout="False"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" />
+
+                        <labels:OrganizationStatusLabel
+                            Grid.Row="2"
+                            Text="Ask a member of an existing organization for an invite"
+                            DisableLayout="False"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" />
+
+                        <labels:OrganizationStatusLabel
+                            Grid.Row="7"
+                            Text="Or create your own organization"
+                            DisableLayout="False"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" />
+
+
+                        <buttons:BindableButton
+                            Grid.Row="8"
+                            WidthRequest="300"
+                            BindingContext="{Binding CreateOrganizationButtonModel}"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="EndAndExpand" />
+                    </Grid>
+
+
+                </StackLayout>
+            </RefreshView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,5 +1,13 @@
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.exe.config
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.exe
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.pdb
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Microsoft.Extensions.DependencyModel.dll
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Nancy.dll
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\System.Net.NameResolution.dll
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Xamarin.Essentials.dll
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Xamarin.Essentials.pdb
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll
@@ -57,6 +65,7 @@ C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendA
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\_ProcessedContentPath.items
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\optimized\
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.csproj.AssemblyReference.cache
+C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.exe.config
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.csproj.CoreCompileInputs.cache
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.csproj.CopyComplete
 C:\Faculta\An3_sem2\Licenta\ElectronicVotingSystem\EVT_FrontendApp\EVT_FrontendApp.iOS\obj\iPhoneSimulator\Debug\EVT_FrontendApp.iOS.exe

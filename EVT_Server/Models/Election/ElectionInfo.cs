@@ -1,11 +1,9 @@
-using EVT_Server.Models.Election;
-
-namespace EVT_Server.Models;
+namespace EVT_Server.Models.Election{
 
 public class ElectionInfo : BaseEntity
 {
     public string ElectionName { get; set; } = "";
-    public IEnumerable<CandidateOption> Options { get; set; } = Array.Empty<CandidateOption>();
+    public List<CandidateOption> Options { get; set; } = new List<CandidateOption>(Array.Empty<CandidateOption>());
     
     
     
@@ -13,4 +11,5 @@ public class ElectionInfo : BaseEntity
     {
         return $"Election{{Id={Id}, ElectionName={ElectionName}}}";
     }
+}
 }

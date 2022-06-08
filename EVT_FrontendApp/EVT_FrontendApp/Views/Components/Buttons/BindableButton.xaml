@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Button xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        HeightRequest="50"
+        CornerRadius="20"
+        Padding = "0"
+        Margin = "0"
+        WidthRequest="220"
+        HorizontalOptions="CenterAndExpand"
+        Text="{Binding Text}"
+        FontFamily="Nunito-ExtraBold"
+        BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+        TextColor="{AppThemeBinding Light={StaticResource PrimaryButtonTextColor}, Dark={StaticResource PrimaryButtonTextColorDark}}"
+        IsVisible="{Binding IsVisible}"
+        IsEnabled="{Binding IsEnabled}"
+        Command="{Binding Command}"
+        x:Class="EVT_FrontendApp.Views.Buttons.BindableButton" />

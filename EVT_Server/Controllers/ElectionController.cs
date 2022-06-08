@@ -1,8 +1,9 @@
+using EVT_Server.Models;
 using EVT_Server.Models.Election;
 using EVT_Server.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EVT_Server.Controllers;
+namespace EVT_Server.Controllers{
 
 [ApiController]
 [Route("[controller]")]
@@ -19,53 +20,27 @@ public class ElectionController : ControllerBase
 
 
     [HttpGet]
-    public async Task GetElections()
+    public IEnumerable<ElectionInfo> GetElections()
     {
         ElectionService electionService = new ElectionService();
 
-        await electionService.GetAll();
+        return electionService.GetAll()!;
     }
 
     [HttpPut]
-    public async Task AddElection()
+    public bool AddElection([FromBody] ElectionInfo electionInfo)
     {
-        await _electionService.InsertElection("new new election", new CandidateOption[]
-        {
-            new CandidateOption()
-            {
-                Id = Guid.NewGuid(),
-                Title = "candidate 1"
-            },
-            new CandidateOption()
-            {
-                Id = Guid.NewGuid(),
-                Title = "candidate 2"
-            },
-            new CandidateOption()
-            {
-                Id = Guid.NewGuid(),
-                Title = "candidate 3"
-            },
-            new CandidateOption()
-            {
-                Id = Guid.NewGuid(),
-                Title = "candidate 4"
-            },
-            new CandidateOption()
-            {
-                Id = Guid.NewGuid(),
-                Title = "candidate 5"
-            }
-        });
+        var addStatus = _electionService.InsertElection(electionInfo.ElectionName, electionInfo.Options);
+        return addStatus;
     }
 
     [HttpPut("{candidateVote}")]
-    public async Task Vote(Guid candidateVote)
+    public bool Vote(Guid candidateVote)
     {
-        var voteStatus = await _votingService.DoVote(candidateVote);
-        
-        Console.WriteLine($"Vote status for candidate {candidateVote} :   {voteStatus}");
-        
+        var voteStatus = _votingService.DoVote(candidateVote);
+        return voteStatus;
+        // Console.WriteLine($"Vote status for candidate {candidateVote}:   {voteStatus}");       
     }
-    
+}
+
 }

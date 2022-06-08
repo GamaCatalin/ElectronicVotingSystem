@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons"
+             xmlns:views="clr-namespace:EVT_FrontendApp.Views"
+             xmlns:auth="clr-namespace:EVT_FrontendApp.Views.Auth"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}"
+             mc:Ignorable="d"
+             x:Class="EVT_FrontendApp.Views.Auth.LoginPhonePage">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Entry Text="{Binding PhoneNumber, Mode=TwoWay}" FontSize="Medium" Margin="0" Placeholder="Phone Number" 
+                   TextColor="{AppThemeBinding Light={StaticResource PrimaryTextColor}, Dark={StaticResource PrimaryTextColor}}"
+            />
+            <Entry Text="{Binding Code, Mode=TwoWay}" FontSize="Medium" Margin="0" Placeholder="SMS Code"
+                   IsVisible="{Binding CodeSent}" 
+                   IsEnabled="{Binding CodeSent}" 
+                   TextColor="{AppThemeBinding Light={StaticResource PrimaryTextColor}, Dark={StaticResource PrimaryTextColor}}"
+            />
+            <Grid VerticalOptions="Center" Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Text="{Binding ButtonText}" Command="{Binding NextCommand}"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+                        />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

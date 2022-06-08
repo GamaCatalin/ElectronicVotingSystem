@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons"
+             xmlns:views="clr-namespace:EVT_FrontendApp.Views"
+             xmlns:auth="clr-namespace:EVT_FrontendApp.Views.Auth"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             xmlns:entries="clr-namespace:EVT_FrontendApp.Views.Entries;assembly=EVT_FrontendApp"
+             xmlns:itemViews="clr-namespace:EVT_FrontendApp.Views.Items;assembly=EVT_FrontendApp"
+             xmlns:labels="clr-namespace:EVT_FrontendApp.Views.Labels;assembly=EVT_FrontendApp"
+             x:Class="EVT_FrontendApp.Views.Pages.Org.CreateElectionPage"
+             Padding="0"
+             >
+    <ContentPage.Content
+        >
+        <Grid Margin="0" Padding="0">            
+            <skViews:RectGradientView StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                                      EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                                      VerticalOptions="FillAndExpand"
+                                      Margin="0"
+                                      Padding="0" />
+            
+            <ActivityIndicator
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,0,0,0"
+                Scale="2.5"
+                Color="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+                IsRunning="{Binding IsBusy}"
+            />
+            
+            
+            <StackLayout
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                Margin="20"
+                Padding="0,50,0,0"
+                VerticalOptions="Center"
+                >
+
+                
+                
+                <entries:TextEntryView BindingContext="{Binding ElectionNameEntryViewModel}"/>
+                
+                <StackLayout Orientation="Horizontal">
+                <labels:ElectionLabel
+                    Text="End Date:"
+                    FontSize="16"
+                    WidthRequest="150"
+                    Margin="0,5,0,0"
+                    HorizontalOptions="EndAndExpand"
+                    />
+                <entries:DateEntryView BindingContext="{Binding EndDateEntryViewModel}"
+                                       WidthRequest="300"
+                                       HorizontalOptions="StartAndExpand"
+                                       />
+                </StackLayout>
+                
+                <labels:ElectionLabel
+                    Text="Candidates:"
+                    FontSize="16"
+                    WidthRequest="150"
+                    Margin="0,5,0,0"
+                    HorizontalOptions="StartAndExpand"
+                    
+                />
+                
+                <CollectionView 
+                    ItemsSource="{Binding CandidateEntries}"
+                    SelectionMode="None"
+                    >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <itemViews:CandidateCreatorItemView/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <buttons:BindableButton
+                    Margin="0,100,0,0"
+                    BindingContext="{Binding CreateElectionModel}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"
+                    
+                />
+                
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

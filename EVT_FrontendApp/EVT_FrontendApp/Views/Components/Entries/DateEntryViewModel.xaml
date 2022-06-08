@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:entries="clr-namespace:EVT_FrontendApp.Views.Entries"
+             xmlns:skView="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             x:Class="EVT_FrontendApp.Views.Entries.DateEntryView"
+>
+    <ContentView.Content>
+        <Grid RowDefinitions="40,2,15"
+              RowSpacing="0"
+        >
+            <!-- <entries:PlainEntry Placeholder="{Binding Placeholder}" PlaceholderColor="#AFFF" -->
+            <!--                     Text = "{Binding Text}" -->
+            <!--                     TextColor="{AppThemeBinding Light={StaticResource PrimaryTextColor}, Dark={StaticResource PrimaryTextColorDark}}" -->
+            <!--                     IsPassword="{Binding IsPassword}" -->
+            <!--                     FontFamily="Nunito-Regular" -->
+            <!--                     x:Name="EntInput" -->
+            <!-- /> -->
+            
+            <DatePicker
+                MinimumDate="{Binding MinimumDate}"
+                MaximumDate="{Binding MaximumDate}"
+                Date="{Binding Date}"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryTextColor}, Dark={StaticResource PrimaryTextColorDark}}"
+                />
+            
+            
+            <!-- <BoxView x:Name="BvUnderline" Color="White" Opacity="0.5" -->
+            <!--          HeightRequest="2" -->
+            <!--          Grid.Row="1" -->
+            <!-- /> -->
+            
+            
+            <!-- <skView:UnderlineGradientView StartColor="Transparent" EndColor="White" Grid.Row="1" -->
+            <!--                               ScaleX="0" -->
+            <!--                               x:Name="GrdUnderline" -->
+            <!-- /> -->
+            
+            <Label Text="{Binding FieldError}"
+                   Grid.Row="2"
+                   FontFamily="Nunito-Bold"
+                   FontSize="12"
+                   TextColor="{AppThemeBinding Light={StaticResource PrimaryErrorTextColor}, Dark={StaticResource PrimaryErrorTextColorDark}}"
+            />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

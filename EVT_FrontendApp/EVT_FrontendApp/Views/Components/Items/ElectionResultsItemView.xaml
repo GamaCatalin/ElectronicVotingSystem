@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:labels="clr-namespace:EVT_FrontendApp.Views.Labels"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             xmlns:local="clr-namespace:EVT_FrontendApp.ViewModels.Items;assembly=EVT_FrontendApp"
+             x:Class="EVT_FrontendApp.Views.Items.ElectionResultsItemView">
+    <ContentView.Content>
+        <Frame
+            Margin="0,0,0,1"
+            Padding="0,0,1,1"
+            BackgroundColor="Black">
+            <Frame
+                Margin="0,0,0,0"
+                Padding="0,0,0,0">
+                <StackLayout
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryBackgroundColor}, Dark={StaticResource SecondaryBackgroundColorDark}}">
+                    <Grid Margin="10,20,10, 20"
+                          ColumnDefinitions="60,*"
+                          RowDefinitions="25, 20, 25"
+                          RowSpacing="0">
+
+
+                        <skViews:CircleGradientView
+                            HeightRequest="60"
+                            Grid.RowSpan="3"
+                            Grid.Column="0"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Margin="0,0,0,0"
+                            StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                            EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                        />
+
+                        <StackLayout
+                            Grid.RowSpan="3"
+                            Grid.Column="1"
+                            HeightRequest="70"
+                            VerticalOptions="Center"
+                            Spacing="0"
+                            WidthRequest="300"
+                            HorizontalOptions="StartAndExpand"
+                            Margin="0,0,0,0">
+
+                            <labels:ElectionLabel
+                                Text="{Binding ElectionName}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <labels:WinnerLabel
+                                Text="{Binding WinnerName}" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

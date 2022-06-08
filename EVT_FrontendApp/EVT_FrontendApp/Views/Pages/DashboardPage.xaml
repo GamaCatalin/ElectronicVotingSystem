@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Top"
+             mc:Ignorable="d"
+             xmlns:pages = "clr-namespace:EVT_FrontendApp.Views"
+             xmlns:org="clr-namespace:EVT_FrontendApp.Views.Pages.Org;assembly=EVT_FrontendApp"
+             x:Class="EVT_FrontendApp.Views.DashboardPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <TabbedPage.Children>
+        
+        <NavigationPage Title="Elections">
+            <x:Arguments>
+                <pages:ElectionsPage BindingContext="{Binding ElectionsViewModel}" />
+            </x:Arguments>
+        </NavigationPage>
+        
+        <NavigationPage Title="Summary">
+            <x:Arguments>
+                <pages:SummaryPage BindingContext="{Binding SummaryViewModel}" />
+            </x:Arguments>
+        </NavigationPage>
+        
+        <NavigationPage Title="Profile">
+            <x:Arguments>
+                <pages:ProfilePage BindingContext="{Binding ProfileViewModel}" />
+            </x:Arguments>
+        </NavigationPage>
+        
+        <NavigationPage Title="Org">
+            <x:Arguments>
+                <org:OrganizationPage BindingContext="{Binding OrganizationViewModel}" />
+            </x:Arguments>
+        </NavigationPage>
+        
+    </TabbedPage.Children>
+</TabbedPage>

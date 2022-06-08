@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:pages="clr-namespace:EVT_FrontendApp.Views"
+             Title="Results"
+             x:Class="EVT_FrontendApp.Views.SummaryPage"
+             xmlns:labels="clr-namespace:EVT_FrontendApp.Views.Labels"
+             xmlns:local="clr-namespace:EVT_FrontendApp.ViewModels"
+             xmlns:model="clr-namespace:EVT_FrontendApp.Models"
+             xmlns:skViews="clr-namespace:EVT_FrontendApp.Views.SKViews"
+             xmlns:items="clr-namespace:EVT_FrontendApp.Views.Items;assembly=EVT_FrontendApp"
+             xmlns:results="clr-namespace:EVT_FrontendApp.ViewModels.Pages.Election.Results;assembly=EVT_FrontendApp"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="BrowseElectionsPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundColor}, Dark={StaticResource PrimaryBackgroundColorDark}}">
+    <ContentPage.Content>
+        <Grid
+            Margin="0"
+            Padding="0"
+        >
+            
+            <skViews:RectGradientView StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
+                                      EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
+                                      VerticalOptions="FillAndExpand"
+                                      Margin="0"
+                                      Padding="0" />
+
+            <StackLayout>
+                <RefreshView
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    Command="{Binding LoadElectionsCommand}">
+
+                    <CollectionView ItemsSource="{Binding Items}"
+                                    SelectedItem="{Binding SelectedItem}"
+                                    SelectionMode="Single"
+                                    x:Name="FinishedElectionsCollectionView"
+                                    >
+
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type results:SummaryViewModel}}, Path=TapCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+
+                                    <items:ElectionResultsItemView 
+                                    />
+                                </StackLayout>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </RefreshView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

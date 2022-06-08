@@ -1,7 +1,8 @@
+using System.Collections;
 using EVT_Server.Models.Election;
 using Npgsql;
 
-namespace EVT_Server.Repository;
+namespace EVT_Server.Repository{
 
 public class CandidateRepository
 {
@@ -12,24 +13,74 @@ public class CandidateRepository
         _db  = DatabaseConnection.GetInstance();
     }
     
-    public async Task<IEnumerable<CandidateOption>?> GetAll()
+    public List<CandidateOption>? GetAll()
     {
-        string sqlQuery = "SELECT * FROM elections";
+        string sqlQuery = "SELECT * FROM candidates";
 
-        var dataReader = await _db.ExecuteReadCommand(sqlQuery);
+        var dataReader = _db.ExecuteReadCommand(sqlQuery);
 
-        Console.WriteLine((await dataReader.GetColumnSchemaAsync()).ToString());
+        List<CandidateOption> candidates = new List<CandidateOption>();
+
+        while (dataReader.Read())
+        {
+            CandidateOption candidate = ReadCandidate(dataReader);
+            candidates.Add(candidate);
+        }
         
-        return dataReader.GetEnumerator() as IEnumerable<CandidateOption>;
+        return candidates;
     }
 
+    private CandidateOption ReadCandidate(NpgsqlDataReader dataReader)
+    {
+        Guid id = dataReader["id"] as Guid? ?? default;
+        string? title = dataReader["title"] as string;
+        string? address = dataReader["address"] as string;
+        string? picture = dataReader["picture"] as string;
+        string? party = dataReader["party"] as string;
+        int voteCount = dataReader["vote_count"] as int? ?? 0;
+        Guid electionId = dataReader["election_id"] as Guid? ?? default;
+        
 
-    public async Task<bool> InsertElection(CandidateOption candidate, Guid electionId)
+        CandidateOption electionInfo = new CandidateOption()
+        {
+            Id = id,
+            Title = title ?? string.Empty,
+            Address = address ?? string.Empty,
+            Party = party ?? string.Empty,
+            Picture = picture ?? string.Empty,
+            VoteCount = voteCount,
+            ElectionId = electionId
+        };
+
+        return electionInfo;
+    }
+
+    public List<CandidateOption>? GetAllForElection(Guid electionId)
+    {
+        string sqlQuery = $"SELECT * FROM candidates WHERE election_id = '{electionId}'";
+
+        var dataReader = _db.ExecuteReadCommand(sqlQuery);
+
+        List<CandidateOption> candidates = new List<CandidateOption>();
+
+        while (dataReader.Read())
+        {
+            CandidateOption candidate = ReadCandidate(dataReader);
+            Console.WriteLine(candidate.ToString());
+            candidates.Add(candidate);
+        }
+        
+        
+        return candidates;
+    } 
+
+
+    public bool InsertElection(CandidateOption candidate, Guid electionId)
     {
         string sqlQuery = $"INSERT INTO candidates (id,title,address,picture,party,vote_count,election_id) VALUES " + 
                           $" ('{candidate.Id}','{candidate.Title}','{candidate.Address}','{candidate.Picture}','{candidate.Party}','{candidate.VoteCount}','{electionId}');";
 
-        var affectedRows = await _db.ExecuteWriteCommand(sqlQuery);
+        var affectedRows = _db.ExecuteWriteCommand(sqlQuery);
         
         if (affectedRows == 0)
         {
@@ -39,9 +90,9 @@ public class CandidateRepository
         return true;
     }
 
-    public async Task<bool> IncrementVote(Guid candidateId)
+    public bool IncrementVote(Guid candidateId)
     {
-        var affectedRows = await _db.ExecuteIncrementProcedure(candidateId);
+        var affectedRows = _db.ExecuteIncrementProcedure(candidateId);
 
         if (affectedRows == 0)
         {
@@ -51,4 +102,5 @@ public class CandidateRepository
         return true;
     }
     
+}
 }

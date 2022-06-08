@@ -4,9 +4,10 @@ using ADO;
 using ADO.Net;
 using ADO.Net.Client;
 using EVT_Server.Models;
+using EVT_Server.Models.Election;
 using Npgsql;
 
-namespace EVT_Server.Repository;
+namespace EVT_Server.Repository{
 
 public class ElectionRepository
 {
@@ -17,23 +18,44 @@ public class ElectionRepository
     }
 
 
-    public async Task<IEnumerable<ElectionInfo>?> GetAll()
+    public List<ElectionInfo>? GetAllElections()
     {
         string sqlQuery = "SELECT * FROM elections";
 
-        var dataReader = await _db.ExecuteReadCommand(sqlQuery);
+        var dataReader = _db.ExecuteReadCommand(sqlQuery);
 
-        Console.WriteLine((await dataReader.GetColumnSchemaAsync()).ToString());
+        List<ElectionInfo> elections = new List<ElectionInfo>();
+
+        while (dataReader.Read())
+        {
+            ElectionInfo election = ReadElection(dataReader);
+            elections.Add(election);
+        }
         
-        return dataReader.GetEnumerator() as IEnumerable<ElectionInfo>;
+        
+        return elections;
+    }
+
+    private static ElectionInfo ReadElection(NpgsqlDataReader dataReader)
+    {
+        Guid id = dataReader["id"] as Guid? ?? default;
+        string? electionName = dataReader["name"] as string;
+
+        ElectionInfo electionInfo = new ElectionInfo()
+        {
+            Id = id,
+            ElectionName = electionName ?? string.Empty
+        };
+
+        return electionInfo;
     }
 
 
-    public async Task<bool> InsertElection(ElectionInfo election)
+    public bool InsertElection(ElectionInfo election)
     {
         string sqlQuery = $"INSERT INTO elections (id,name) VALUES ('{election.Id}', '{election.ElectionName}');";
 
-        var affectedRows = await _db.ExecuteWriteCommand(sqlQuery);
+        var affectedRows = _db.ExecuteWriteCommand(sqlQuery);
         
         if (affectedRows == 0)
         {
@@ -44,11 +66,12 @@ public class ElectionRepository
         
         foreach (var candidateOption in election.Options)
         {
-            await candidateRepository.InsertElection(candidateOption, election.Id);
+            candidateRepository.InsertElection(candidateOption, election.Id);
         }
         
         return true;
     }
     
     
+}
 }

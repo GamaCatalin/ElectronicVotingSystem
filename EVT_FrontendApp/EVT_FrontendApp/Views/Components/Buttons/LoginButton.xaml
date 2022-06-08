@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<buttons:BindableButton xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:EVT_FrontendApp.Views.Buttons;assembly=EVT_FrontendApp"
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryButtonBackgroundColor}, Dark={StaticResource PrimaryButtonBackgroundColorDark}}"
+             x:Class="EVT_FrontendApp.Views.Buttons.LoginButton"/>
