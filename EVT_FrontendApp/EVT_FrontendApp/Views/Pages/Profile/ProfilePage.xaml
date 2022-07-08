@@ -17,7 +17,8 @@
              x:Class="EVT_FrontendApp.Views.ProfilePage"
              Padding="0">
     <ContentPage.Content>
-        <Grid Margin="0" Padding="0">
+        <Grid Margin="0" Padding="0"
+              >
             <skViews:RectGradientView
                 StartColor="{AppThemeBinding Light={StaticResource GradientStartColor}, Dark={StaticResource GradientStartColorDark}}"
                 EndColor="{AppThemeBinding Light={StaticResource GradientEndColor}, Dark={StaticResource GradientEndColorDark}}"
@@ -37,12 +38,12 @@
             <StackLayout
                 WidthRequest="300"
                 HorizontalOptions="Center"
-                Margin="0"
+                Margin="20"
                 Padding="0">
 
                 <StackLayout
                     Padding="0"
-                    Margin="0,45,0,0">
+                    Margin="0,0,0,0">
                     <Frame
                         CornerRadius="100"
                         WidthRequest="200"

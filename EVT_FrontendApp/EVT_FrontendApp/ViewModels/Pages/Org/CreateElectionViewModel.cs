@@ -217,7 +217,7 @@ namespace EVT_FrontendApp.ViewModels.Pages.Org
             };
         }
 
-        private async Task<bool> ValidateElectionName()
+        private Task<bool> ValidateElectionName()
         {
             var orgName = ElectionNameEntryViewModel.Text;
             ElectionNameEntryViewModel.FieldError = "";
@@ -226,10 +226,10 @@ namespace EVT_FrontendApp.ViewModels.Pages.Org
             {
                 ElectionNameEntryViewModel.FieldError = "Election name must not be empty!";
                 // await _alertService.AlertAsync("Election name must not be empty!");
-                return false;
+                return Task.FromResult(false);
             }
 
-            return true;
+            return Task.FromResult(true);
         }
 
         private void UpdateIndexLabels()

@@ -15,7 +15,7 @@ namespace EVT_FrontendApp.Views.Entries
             // EntInput.Unfocused += EntInput_Focused;
         }
 
-        private async void EntInput_Focused(object sender, FocusEventArgs e)
+        private void EntInput_Focused(object sender, FocusEventArgs e)
         {
             // if (e.IsFocused)
             // {
